@@ -1,0 +1,19 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm ./src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.5.0",
+    "esm": "^3.2.25",
+    "graphql": "^14.3.0"
+  },
+  "devDependencies": {
+    "hot-module-replacement": "^3.0.3"
+  }
+}
