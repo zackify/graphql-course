@@ -12,5 +12,19 @@ export const resolvers = {
         },
       ];
     },
+    authors: () => {
+      return [
+        { name: 'Todd', twitter: 'toddmotto' },
+        { name: 'React', twitter: 'reactjs' },
+      ];
+    },
+  },
+  Mutation: {
+    addAuthor: (_, { input: { name, twitter } }) => {
+      return {
+        name,
+        twitter,
+      };
+    },
   },
 };
