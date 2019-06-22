@@ -3,7 +3,7 @@ import useBooksQuery from './useBooksQuery';
 import useDeleteBookMutation from './useDeleteBookMutation';
 import ChangeTitle from './ChangeTitle';
 
-const QueryTest = () => {
+const Books = () => {
   let { data } = useBooksQuery();
   let mutate = useDeleteBookMutation();
 
@@ -19,4 +19,4 @@ const QueryTest = () => {
   ));
 };
 
-export default QueryTest;
+export default Books;

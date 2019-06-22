@@ -3,13 +3,13 @@ import Nav from './Nav';
 import apolloClient from './apolloSetup';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import QueryTest from './pages/QueryTest';
+import Books from './pages/Books';
 
 const App = () => (
   <ApolloProvider client={apolloClient}>
     <React.Fragment>
       <Nav />
-      <QueryTest />
+      <Books />
     </React.Fragment>
   </ApolloProvider>
 );
