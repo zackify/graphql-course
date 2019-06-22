@@ -12,6 +12,7 @@ export const typeDefs = gql`
   }
 
   type Book {
+    id: Int!
     title: String!
     author: String!
   }
@@ -21,7 +22,14 @@ export const typeDefs = gql`
     authors: [Author]
   }
 
+  input ChangeBookInput {
+    id: Int!
+    title: String!
+  }
+
   type Mutation {
+    changeBookTitle(input: ChangeBookInput!): Book
     addAuthor(input: AddAuthorInput!): Author
+    deleteBook(title: String!): Boolean
   }
 `;
