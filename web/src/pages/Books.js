@@ -5,7 +5,7 @@ import ChangeTitle from './ChangeTitle';
 
 const Books = () => {
   let { data } = useBooksQuery();
-  let mutate = useDeleteBookMutation();
+  let deleteBook = useDeleteBookMutation();
 
   if (!data || !data.books) return null;
 
@@ -13,7 +13,7 @@ const Books = () => {
     <div>
       <h3>{book.title}</h3>
       <p>{book.author}</p>
-      <button onClick={() => mutate(book.title)}>Delete Book</button>
+      <button onClick={() => deleteBook(book.title)}>Delete Book</button>
       <ChangeTitle book={book} />
     </div>
   ));

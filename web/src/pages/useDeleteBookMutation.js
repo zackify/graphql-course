@@ -9,10 +9,10 @@ export const mutation = gql`
 `;
 
 export default () => {
-  let [mutate] = useMutation(mutation);
+  let [deleteBook] = useMutation(mutation);
 
   return title => {
-    return mutate({
+    return deleteBook({
       variables: { title },
       update: store => {
         const data = store.readQuery({
