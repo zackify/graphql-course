@@ -13,7 +13,5 @@
     "backpack-core": "^0.8.4",
     "graphql": "^14.3.0"
   },
-  "devDependencies": {
-    "hot-module-replacement": "^3.0.3"
-  }
+  "devDependencies": {}
 }
