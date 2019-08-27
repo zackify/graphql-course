@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esm ./src/index.js"
+    "start": "backpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.5.0",
-    "esm": "^3.2.25",
+    "backpack-core": "^0.8.4",
     "graphql": "^14.3.0"
   },
   "devDependencies": {
