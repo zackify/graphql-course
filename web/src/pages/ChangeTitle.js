@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import useChangeBookTitleMutation from './useChangeBookTitleMutation';
+import React, { useState, useEffect } from "react";
+import useChangeBookTitleMutation from "./useChangeBookTitleMutation";
 
 const ChangeTitle = ({ book }) => {
   let changeTitle = useChangeBookTitleMutation();
   let [title, setTitle] = useState(book.title);
+
+  useEffect(() => {
+    setTitle(book.title);
+  }, [setTitle, book]);
 
   return (
     <div>

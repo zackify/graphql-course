@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from "apollo-server";
 
 export const typeDefs = gql`
   input AddAuthorInput {
@@ -31,5 +31,9 @@ export const typeDefs = gql`
     changeBookTitle(input: ChangeBookInput!): Book
     addAuthor(input: AddAuthorInput!): Author
     deleteBook(title: String!): Boolean
+  }
+
+  type Subscription {
+    bookTitleChanged: Book
   }
 `;

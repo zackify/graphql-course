@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.5.0",
+    "apollo-server": "^2.9.0",
     "backpack-core": "^0.8.4",
     "graphql": "^14.3.0"
   },

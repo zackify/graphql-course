@@ -1,14 +1,16 @@
+import pubsub from "./pubsub";
+
 const books = [
   {
     id: 1,
-    title: 'Harry Potter and the Chamber of Secrets',
-    author: 'J.K. Rowling',
+    title: "Harry Potter and the Chamber of Secrets",
+    author: "J.K. Rowling"
   },
   {
     id: 2,
-    title: 'Jurassic Park',
-    author: 'Michael Crichton',
-  },
+    title: "Jurassic Park",
+    author: "Michael Crichton"
+  }
 ];
 
 export const resolvers = {
@@ -18,16 +20,16 @@ export const resolvers = {
     },
     authors: () => {
       return [
-        { name: 'Todd', twitter: 'toddmotto' },
-        { name: 'React', twitter: 'reactjs' },
+        { name: "Todd", twitter: "toddmotto" },
+        { name: "React", twitter: "reactjs" }
       ];
-    },
+    }
   },
   Mutation: {
     addAuthor: (_, { input: { name, twitter } }) => {
       return {
         name,
-        twitter,
+        twitter
       };
     },
     deleteBook: (_, { title }) => true,
@@ -36,11 +38,20 @@ export const resolvers = {
 
       let book = books.find(book => book.id === id);
 
+      pubsub.publish("bookTitleChanged", {
+        bookTitleChanged: { ...book, title }
+      });
+
       //Return the new book title
       return {
         ...book,
-        title,
+        title
       };
-    },
+    }
   },
+  Subscription: {
+    bookTitleChanged: {
+      subscribe: () => pubsub.asyncIterator(["bookTitleChanged"])
+    }
+  }
 };

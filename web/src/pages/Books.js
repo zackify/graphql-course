@@ -1,9 +1,11 @@
-import React from 'react';
-import useBooksQuery from './useBooksQuery';
-import useDeleteBookMutation from './useDeleteBookMutation';
-import ChangeTitle from './ChangeTitle';
+import React from "react";
+import useBooksQuery from "./useBooksQuery";
+import useDeleteBookMutation from "./useDeleteBookMutation";
+import ChangeTitle from "./ChangeTitle";
+import useBookTitleChanged from "./useBookTitleChanged";
 
 const Books = () => {
+  useBookTitleChanged();
   let { data } = useBooksQuery();
   let deleteBook = useDeleteBookMutation();
 
