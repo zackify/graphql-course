@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esm ./src/index.js"
+    "start": "backpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.5.0",
-    "esm": "^3.2.25",
+    "apollo-server": "^2.9.0",
+    "backpack-core": "^0.8.4",
     "graphql": "^14.3.0"
   },
-  "devDependencies": {
-    "hot-module-replacement": "^3.0.3"
-  }
+  "devDependencies": {}
 }
