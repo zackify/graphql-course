@@ -12,7 +12,7 @@ const Books = () => {
   if (!data || !data.books) return null;
 
   return data.books.map(book => (
-    <div>
+    <div key={book.id}>
       <h3>{book.title}</h3>
       <p>{book.author}</p>
       <button onClick={() => deleteBook(book.title)}>Delete Book</button>

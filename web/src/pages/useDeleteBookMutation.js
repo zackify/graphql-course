@@ -12,9 +12,11 @@ export default () => {
   let [deleteBook] = useMutation(mutation);
 
   return title => {
+
     return deleteBook({
       variables: { title },
       update: store => {
+
         const data = store.readQuery({
           query: booksQuery,
         });
@@ -27,6 +29,7 @@ export default () => {
             ),
           },
         });
+
       },
     });
   };

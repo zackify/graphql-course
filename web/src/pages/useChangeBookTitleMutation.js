@@ -14,8 +14,15 @@ export default () => {
   let [mutate] = useMutation(mutation);
 
   return ({ id, title }) => {
-    return mutate({
+    mutate({
       variables: { input: { id, title } },
+      optimisticResponse: {
+        changeBookTitle: {
+          __typename: 'Book',
+          id,
+          title,
+        },
+      },
     });
   };
 };

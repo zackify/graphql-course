@@ -15,8 +15,12 @@ const books = [
 
 export const resolvers = {
   Query: {
-    books: () => {
+    //explain the parameters
+    books: (_, { input }, context, info) => {
       return books;
+    },
+    book: (_, { id}) => {
+      return books.find(book => book.id === id)
     },
     authors: () => {
       return [
@@ -25,6 +29,17 @@ export const resolvers = {
       ];
     }
   },
+
+  // Book: {
+  //   title: async (book) => {
+  //     //simulate a big delay in processing
+  //     await new Promise(resolve => setTimeout(resolve, 400))
+  //     return book.title + 'test'
+  //   }
+  // },
+
+
+  
   Mutation: {
     addAuthor: (_, { input: { name, twitter } }) => {
       return {
@@ -33,8 +48,11 @@ export const resolvers = {
       };
     },
     deleteBook: (_, { title }) => true,
-    changeBookTitle: (_, { input }) => {
+    changeBookTitle: async (_, { input }) => {
       let { id, title } = input;
+      
+      //simulate a big delay in processing
+     //await new Promise(resolve => setTimeout(resolve, 3000))
 
       let book = books.find(book => book.id === id);
 
@@ -45,10 +63,14 @@ export const resolvers = {
       //Return the new book title
       return {
         ...book,
-        title
+        title: title + ' test'
       };
     }
   },
+
+
+
+
   Subscription: {
     bookTitleChanged: {
       subscribe: () => pubsub.asyncIterator(["bookTitleChanged"])
